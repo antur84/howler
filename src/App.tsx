@@ -1,4 +1,3 @@
-import './App.css';
 import { HowlFeed } from './features/howls';
 
 function App() {

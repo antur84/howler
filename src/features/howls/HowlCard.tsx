@@ -1,4 +1,3 @@
-import './HowlCard.css';
 import type { Howl } from './types';
 
 function formatRelativeTime(dateStr: string): string {
@@ -27,18 +26,22 @@ interface HowlCardProps {
 
 export function HowlCard({ howl }: HowlCardProps) {
   return (
-    <article className="howl-card">
-      <div className="howl-header">
-        <span className="howl-display-name">{howl.author.displayName}</span>
-        <span className="howl-username">{howl.author.username}</span>
-        <span className="howl-separator" />
-        <time className="howl-timestamp" dateTime={howl.createdAt}>
+    <article className="px-5 py-4 border border-border rounded-sm">
+      <div className="flex items-baseline gap-1.5 mb-1">
+        <span className="font-bold text-text-h text-[0.95rem]">
+          {howl.author.displayName}
+        </span>
+        <span className="text-text text-sm">@{howl.author.username}</span>
+        <span className="text-text text-sm">·</span>
+        <time className="text-text text-sm" dateTime={howl.createdAt}>
           {formatRelativeTime(howl.createdAt)}
         </time>
       </div>
-      <p className="howl-content">{howl.content}</p>
-      <div className="howl-footer">
-        <span className="howl-likes">♥ {howl.likes}</span>
+      <p className="text-text-h leading-[1.45] mb-2">{howl.content}</p>
+      <div className="flex items-center gap-1 text-text text-sm">
+        <span className="cursor-pointer transition-colors hover:text-accent">
+          ♥ {howl.likes}
+        </span>
       </div>
     </article>
   );
