@@ -1,0 +1,61 @@
+.howl-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: .2rem;
+}
+
+.howl-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.howl-display-name {
+  font-weight: 700;
+  color: var(--text-h);
+  font-size: 0.95rem;
+}
+
+.howl-username {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.howl-timestamp {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.howl-username::before {
+  content: '@';
+}
+
+.howl-separator::before {
+  content: '·';
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.howl-content {
+  color: var(--text-h);
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+}
+
+.howl-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.howl-likes {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.howl-likes:hover {
+  color: var(--accent);
+}
