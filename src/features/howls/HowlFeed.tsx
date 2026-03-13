@@ -1,38 +1,9 @@
-import { useEffect, useState } from 'react';
-import { getHowls } from './api';
 import { HowlCard } from './HowlCard';
 import './HowlFeed.css';
-import type { Howl } from './types';
+import { useHowls } from './useHowls';
 
 export function HowlFeed() {
-  const [howls, setHowls] = useState<Howl[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    getHowls()
-      .then((data) => {
-        if (!cancelled) {
-          setHowls(data);
-        }
-      })
-      .catch((err: unknown) => {
-        if (!cancelled) {
-          setError(err instanceof Error ? err.message : 'Failed to load howls');
-        }
-      })
-      .finally(() => {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const { howls, loading, error } = useHowls();
 
   return (
     <section className="howl-feed">
