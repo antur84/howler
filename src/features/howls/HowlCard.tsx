@@ -6,11 +6,17 @@ function formatRelativeTime(dateStr: string): string {
   const then = new Date(dateStr).getTime();
   const diffSec = Math.floor((now - then) / 1000);
 
-  if (diffSec < 60) return `${diffSec}s`;
+  if (diffSec < 60) {
+    return `${diffSec}s`;
+  }
   const diffMin = Math.floor(diffSec / 60);
-  if (diffMin < 60) return `${diffMin}m`;
+  if (diffMin < 60) {
+    return `${diffMin}m`;
+  }
   const diffHr = Math.floor(diffMin / 60);
-  if (diffHr < 24) return `${diffHr}h`;
+  if (diffHr < 24) {
+    return `${diffHr}h`;
+  }
   const diffDay = Math.floor(diffHr / 24);
   return `${diffDay}d`;
 }

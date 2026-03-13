@@ -14,13 +14,19 @@ export function HowlFeed() {
 
     getHowls()
       .then((data) => {
-        if (!cancelled) setHowls(data);
+        if (!cancelled) {
+          setHowls(data);
+        }
       })
       .catch((err: unknown) => {
-        if (!cancelled) setError(err instanceof Error ? err.message : 'Failed to load howls');
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : 'Failed to load howls');
+        }
       })
       .finally(() => {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       });
 
     return () => {
