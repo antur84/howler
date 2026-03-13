@@ -1,8 +1,8 @@
-import './App.css'
-import { HowlFeed } from './features/howls'
+import './App.css';
+import { HowlFeed } from './features/howls';
 
 function App() {
-  return <HowlFeed />
+  return <HowlFeed />;
 }
 
-export default App
+export default App;

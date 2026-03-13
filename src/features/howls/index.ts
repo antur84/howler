@@ -1,3 +1,3 @@
-export { HowlFeed } from './HowlFeed'
-export type { Howl, HowlAuthor } from './types'
+export { HowlFeed } from './HowlFeed';
+export type { Howl, HowlAuthor } from './types';
 
