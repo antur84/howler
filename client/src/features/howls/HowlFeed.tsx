@@ -12,7 +12,7 @@ export function HowlFeed({ user }: HowlFeedProps) {
 
   return (
     <section className="w-full mx-auto bg-bg overflow-hidden flex flex-col gap-4">
-      {user && <ComposeHowl user={user} onHowl={(content) => addHowl(user, content)} />}
+      {user && <ComposeHowl user={user} onHowl={addHowl} />}
       {loading && <p className="p-8 text-center text-text">Loading howls…</p>}
       {error && <p className="p-8 text-center text-red-500">{error}</p>}
       {!loading && !error && howls.map((h) => <HowlCard key={h.id} howl={h} />)}

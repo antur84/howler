@@ -17,6 +17,8 @@ type Config struct {
 	CookieDomain   string
 	CookieSecure   bool
 	AllowedOrigins []string
+	SupabaseURL    string
+	SupabaseKey    string
 }
 
 func Load() *Config {
@@ -29,6 +31,8 @@ func Load() *Config {
 	cookieSecure := getEnv("COOKIE_SECURE", "false") == "true"
 
 	clientID := mustGetEnv("GOOGLE_CLIENT_ID")
+	supabaseURL := mustGetEnv("SUPABASE_URL")
+	supabaseKey := mustGetEnv("SUPABASE_KEY")
 
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
@@ -48,6 +52,8 @@ func Load() *Config {
 		GoogleClientID: clientID,
 		JWTSecret:      []byte(jwtSecret),
 		AllowedOrigins: []string{frontendURL},
+		SupabaseURL:    supabaseURL,
+		SupabaseKey:    supabaseKey,
 	}
 }
 
