@@ -9,7 +9,7 @@ interface ComposeHowlProps {
 export function ComposeHowl({ user, onHowl }: ComposeHowlProps) {
   const [content, setContent] = useState('');
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
     const trimmed = content.trim();
     if (!trimmed) {
