@@ -1,14 +1,16 @@
-import { LoginButton } from './features/auth';
+import { LoginButton, useAuth } from './features/auth';
 import { HowlFeed } from './features/howls';
 
 function App() {
+  const { user } = useAuth();
+
   return (
     <div className="mx-auto max-w-2xl p-4">
       <header className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Howler</h1>
         <LoginButton />
       </header>
-      <HowlFeed />
+      <HowlFeed user={user} />
     </div>
   );
 }

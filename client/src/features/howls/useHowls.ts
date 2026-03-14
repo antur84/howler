@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import type { User } from '../auth';
 import { getHowls } from './api';
 import type { Howl } from './types';
 
@@ -32,5 +33,19 @@ export function useHowls() {
     };
   }, []);
 
-  return { howls, loading, error };
+  const addHowl = useCallback((user: User, content: string) => {
+    const newHowl: Howl = {
+      id: crypto.randomUUID(),
+      author: {
+        displayName: user.name,
+        username: user.email.split('@')[0],
+      },
+      content,
+      createdAt: new Date().toISOString(),
+      likes: 0,
+    };
+    setHowls((prev) => [newHowl, ...prev]);
+  }, []);
+
+  return { howls, loading, error, addHowl };
 }
