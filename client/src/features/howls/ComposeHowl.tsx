@@ -28,7 +28,7 @@ export function ComposeHowl({ user, onHowl }: ComposeHowlProps) {
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="What's on your mind? 🐺"
+        placeholder="Bark at the moon 🐺"
         maxLength={280}
         rows={3}
         className="w-full resize-none rounded border border-border bg-transparent px-3 py-2 text-text-h placeholder:text-text focus:border-accent focus:outline-none"
